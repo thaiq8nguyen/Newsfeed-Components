@@ -1,37 +1,66 @@
-// Because classes are not hoisted you will need to start your code at the bottom of the page.  Look for the comment "START HERE"
+
+const articlesData = [
+  {"title": "Lambda School Students: \"We're the best!\" ",
+    "date": "Nov 5th, 2017",
+    "content": "Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando moff wicket tatooine luke. Solo wampa wampa calrissian yoda moff. Darth grievous darth gonk darth hutt. Darth baba skywalker ",
+    "view_counts": 0
+  },
+  {"title": "Lambda School Students: \"We're the best!\" ",
+    "date": "Nov 5th, 2017",
+    "content": "Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando moff wicket tatooine luke. Solo wampa wampa calrissian yoda moff. Darth grievous darth gonk darth hutt. Darth baba skywalker ",
+    "view_counts": 0
+  },
+  {"title": "Lambda School Students: \"We're the best!\" ",
+    "date": "Nov 5th, 2017",
+    "content": "Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando moff wicket tatooine luke. Solo wampa wampa calrissian yoda moff. Darth grievous darth gonk darth hutt. Darth baba skywalker ",
+    "view_counts": 0
+  },
+  {"title": "Lambda School Students: \"We're the best!\" ",
+    "date": "Nov 5th, 2017",
+    "content": "Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando moff wicket tatooine luke. Solo wampa wampa calrissian yoda moff. Darth grievous darth gonk darth hutt. Darth baba skywalker ",
+    "view_counts": 0
+  }
+];
+class BaseArticle {
+  constructor(content) {
+    this.content = content;
+    this.container = document.createElement("div");
+    this.container.classList.add("article");
+    this.container
+
+  }
+
+  expandArticle() {
+
+  }
+}
+
+/* END EXPERIMENT */
 
 class Article {
   constructor(domElement) {
-    // assign this.domElement to the passed in domElement
-    this.domElement = domElement
-    // create a reference to the ".expandButton" class. 
-    this.dynamicButton = this.domElement.querySelector(".read-more-btn");
     
-    // Using your expandButton reference, update the text on your expandButton to say "expand"
-    //this.expandButton.textContent = "Expand";
+    this.article = domElement
     
-    // Set a click handler on the expandButton reference, calling the expandArticle method.
-    this.dynamicButton.addEventListener("click", event => {
-      this.expandArticle(event);
-    });
+    this.dynamicButton = this.article.querySelector(".read-more-btn");
+    
+    this.dynamicButton.addEventListener("click", this.expandArticle.bind(this));
     
   }
 
-  expandArticle(event) {
-    // Using our reference to the domElement, toggle a class to expand or hide the article.
-    const article = event.target.closest(".article");
+  expandArticle() {
     
-    article.classList.toggle("article-open");
+    this.article.classList.toggle("article-open");
 
-    this.handleArticleButton(article)
+    this.handleArticleButton()
     
   }
 
-  handleArticleButton(article) {
+  handleArticleButton() {
 
     const button = this.dynamicButton;
 
-    if(article.classList.contains("article-open")) {
+    if(this.article.classList.contains("article-open")) {
       button.textContent = "Close";
       button.classList.remove("read-more-btn");
       button.classList.add("close-article-btn");
@@ -44,14 +73,6 @@ class Article {
     }
   }
 }
-
-/* START HERE: 
-
-- Select all classes named ".article" and assign that value to the articles variable.  
-
-- With your selection in place, now chain .forEach() on to the articles variable to iterate over the articles NodeList and create a new instance of Article by passing in each article as a parameter to the Article class.
-
-*/
 
 let articles = document.querySelectorAll(".article");
 
