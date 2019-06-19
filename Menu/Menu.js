@@ -1,18 +1,25 @@
 
-// const toggleMenu = () => {
-//   // Toggle the "menu--open" class on your menu refence. 
-// }
+class SideNavMenu {
+  constructor(menu) {
+    this.menu = menu;
+    this.menuBtn = document.querySelector(".menu-button");
+    this.articlesContainer = document.querySelector(".articles");
+    this.documentBody = document.querySelector("body");
 
-// Start Here: Create a reference to the ".menu" class
-const menu = document.querySelector(".menu");
-// create a reference to the ".menu-button" class
-const menuButton = document.querySelector(".menu-button");
-// Using your menuButton reference, add a click handler that calls toggleMenu
 
-menuButton.addEventListener("click", toggleMenu);
+    this.menuBtn.addEventListener("click", this.toggleMenu.bind(this));
+  }
 
-function toggleMenu(event) {
-  
-  menu.classList.toggle("menu--open")
-  
+  toggleMenu() {
+
+    
+    this.menu.classList.toggle("menu--open")
+    this.articlesContainer.classList.toggle("articles-push")
+    
+  }
 }
+
+
+const menu = document.querySelector(".menu");
+
+new SideNavMenu(menu);

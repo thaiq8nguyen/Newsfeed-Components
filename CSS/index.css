@@ -41,33 +41,48 @@
   cursor: pointer;
 }
 .menu {
-  display: none;
   position: fixed;
   top: 75px;
   left: 0;
-  width: 350px;
+  width: 0px;
   height: 100vh;
   /* This give the height 100% of the screen or, '100% of View Height' */
-  background-color: #81C784;
+  background: black;
   border: 1px solid #004D40;
   border-left: none;
   border-bottom: none;
   z-index: 2;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
+  transition: width 0.5s ease;
+  overflow-x: hidden;
 }
 .menu ul li {
   list-style-type: none;
-  font-size: 32px;
   padding: 30px 0;
-  text-align: center;
-}
-.menu--open {
   display: block;
 }
+.menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 32px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid transparent;
+}
+.menu ul li a:hover {
+  border-bottom: 1px solid white;
+}
+.menu--open {
+  width: 350px;
+}
 .articles {
-  margin-top: 95px;
+  height: 100vh;
+  padding-top: 80px;
+  background-color: whitesmoke;
+  transition: margin-left 0.5s ease;
 }
 .article {
+  display: flex;
+  flex-direction: column;
   margin: 20px 10%;
   padding: 0 20px 25px;
   border: 1px solid lightgrey;
@@ -79,14 +94,37 @@
   box-shadow: 2px 2px 2px lightgrey;
   transition: height 0.5s ease;
 }
-.article h2 {
+.article .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.article .heading .title h2 {
   font-size: 28px;
   padding: 0;
   margin: 15px 0 0;
 }
-.article .date {
+.article .heading .title .date {
   margin: 0;
   font-size: 14px;
+}
+.article .heading .read-more-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: green;
+  color: white;
+  border: 0.1rem solid green;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.article .heading .close-article-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: whitesmoke;
+  color: black;
+  border: 0.1rem solid whitesmoke;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }
 .article .close {
   position: absolute;
@@ -105,6 +143,9 @@
 }
 .article-open {
   height: 400px;
+}
+.articles-push {
+  margin-left: 250px;
 }
 html,
 body {
