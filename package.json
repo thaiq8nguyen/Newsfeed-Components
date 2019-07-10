@@ -1,0 +1,33 @@
+{
+  "name": "Newsfeed-Components",
+  "version": "1.0.0",
+  "description": "In this project we are going to be building a news feed reader. The goal is to have a collapsing menu, and expandable news articles. The CSS and some of the HTML is already done for you, you simply need to connect the pieces. After the CSS is connected it is time to move on to building out our components using JavaScript. We will be adding common functionality and styling to build reusable components.",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaiq8nguyen/Newsfeed-Components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thaiq8nguyen/Newsfeed-Components/issues"
+  },
+  "homepage": "https://github.com/thaiq8nguyen/Newsfeed-Components#readme",
+  "dependencies": {
+    "bulma": "^0.7.5",
+    "classnames": "^2.2.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "less": "^3.9.0",
+    "parcel-bundler": "^1.12.3",
+    "postcss-modules": "^1.4.1"
+  }
+}
